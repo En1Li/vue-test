@@ -25,3 +25,16 @@ const obj = arr1.reduce((res , item)=>{
   return res
 } , {})
 console.log(obj);
+
+let url = 'http://www.baidu.com?name=zhangsan&age=18&sex=nan#'
+const jiexi = (url)=>{
+  const index1 = url.indexOf('?')
+  const index2 = url.indexOf('#')
+  const arr = url.substring(index1+1, index2).split('&')
+  return arr.reduce((res , item)=>{
+    const [key , value] = item.split('=')
+      res[key] = value
+      return res
+  },{})
+}
+console.log(jiexi(url));
